@@ -370,7 +370,7 @@
               <img src="assets/img/portfolio/apple.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/apple.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Apple static clone"><i class="bx bx-plus"></i></a>
-                <a href="https://itsvishnuprakash.github.io/apple-static-clone/" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="https://itsvishnuprakash.github.io/apple-static-clone/" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -390,7 +390,7 @@
               <img src="assets/img/portfolio/canva.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/canva.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Canva static clone"><i class="bx bx-plus"></i></a>
-                <a href="https://itsvishnuprakash.github.io/canva-static-clone/" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="https://itsvishnuprakash.github.io/canva-static-clone/" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -420,7 +420,7 @@
               <img src="assets/img/portfolio/tesla.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/tesla.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Tesla responsive clone"><i class="bx bx-plus"></i></a>
-                <a href="" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="https://itsvishnuprakash.github.io/tesla-r/" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -470,7 +470,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form onsubmit="SendEmail(); reset(); return false; "role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -487,7 +487,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="message" rows="10" id="message" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
@@ -508,7 +508,27 @@
   
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
+  <script>
+    function SendEmail() {
+      Email.send({
+        Host: "smtp.google.com",
+        Username: "vishnumry2016@gmail.com",
+        Password: "58083F679B635396C8B0F45BC30FFC365B4B",
+        To: 'vishnumry2016@gmail.com',
+        From: document.getElementById("email").value,
+        Subject: "This is the subject",
+        Body: "Name :" + document.getElementById("name").value
+          + "<br>Email :" + document.getElementById("email").value
+          + "<br>Subject :" + document.getElementById("subject").value
+          + "<br>Message :" + document.getElementById("message").value
+      }).then(
+        message => alert(message)
+      );
+    }
+
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
